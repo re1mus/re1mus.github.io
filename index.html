@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Quest — учебный проект</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card: rgba(15, 23, 42, 0.9);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #3b82f6;
+      --radius: 16px;
+      --border: rgba(148, 163, 184, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(700px 350px at 15% -10%, #1e3a8a55, transparent),
+        radial-gradient(600px 300px at 85% 10%, #2563eb55, transparent),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(2, 6, 23, 0.7);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      margin-left: 22px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 0;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* BUTTONS */
+    .btn {
+      padding: 13px 24px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      box-shadow: 0 10px 30px rgba(59,130,246,0.35);
+      transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(59,130,246,0.55);
+      filter: brightness(1.05);
+    }
+
+    .btn:active {
+      transform: translateY(-1px) scale(.97);
+    }
+
+    .btn.secondary {
+      background: rgba(148,163,184,0.1);
+      border: 1px solid var(--border);
+      box-shadow: none;
+    }
+
+    .btn.secondary:hover {
+      background: rgba(148,163,184,0.18);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 10px 30px rgba(59,130,246,.35); }
+      50% { box-shadow: 0 14px 40px rgba(59,130,246,.55); }
+      100% { box-shadow: 0 10px 30px rgba(59,130,246,.35); }
+    }
+
+    .hero .btn:not(.secondary) {
+      animation: pulse 3.5s ease-in-out infinite;
+    }
+
+    /* CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+      margin-top: 36px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.4);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .card p {
+      font-size: 14px;
+    }
+
+    code {
+      background: rgba(148,163,184,.12);
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Python Quest</div>
+      <div>
+        <a href="#about">О проекте</a>
+        <a href="#features">Возможности</a>
+        <a href="#download">Скачать</a>
+        <a href="#contact">Контакты</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <h1>Учебная игра<br><span>для изучения Python</span></h1>
+    <p>
+      Python Quest — образовательный IT-проект для школьников и начинающих,
+      обучающий Python через практику и работу в терминале.
+    </p>
+    <div class="buttons">
+      <a class="btn" href="#">Скачать .py</a>
+      <a class="btn secondary" href="#">Скачать ZIP</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>О проекте</h2>
+    <p>
+      Проект помогает начать программировать без перегруженной теории.
+      Пользователь сразу пишет команды и видит результат своей работы.
+    </p>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h2>Ключевые возможности</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Практика вместо теории</h3>
+        <p>Обучение через реальные задачи</p>
+      </div>
+      <div class="card">
+        <h3>5 уровней</h3>
+        <p>Постепенное усложнение заданий</p>
+      </div>
+      <div class="card">
+        <h3>Работа в терминале</h3>
+        <p>Как у настоящих программистов</p>
+      </div>
+      <div class="card">
+        <h3>Для новичков</h3>
+        <p>Не требует опыта программирования</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="container">
+    <h2>Запуск игры</h2>
+    <p>
+      После скачивания запусти файл командой:<br><br>
+      <code>python Python_Quest.py</code>
+    </p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Контакты</h2>
+    <p>
+      <a href="mailto:artemisslesarev@yandex.ru">artemisslesarev@yandex.ru</a><br>
+      <a href="mailto:gad2009@rambler.ru">gad2009@rambler.ru</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2025 Python Quest · Учебный проект
+  </div>
+</footer>
+
+</body>
+</html>
+
